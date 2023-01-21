@@ -1,1 +1,51 @@
-<p>ver-pais works!</p>
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+
+<ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        País: <small>{{ pais.name.common }}</small>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <div style="font-size: 100px; margin-top:-30px;">{{ pais.flag }}</div>
+    </div>
+    <div class="col">
+        <h3>Información</h3>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Población: </strong> {{ pais.population | number: "1.0-2":"es"}} habitantes
+            </li>
+            <li class="list-group-item">
+                <strong>Código: </strong> {{ pais.cca3 }}
+            </li>
+            <li class="list-group-item">
+                <strong>Código numérico: </strong> {{ pais.ccn3 }}
+            </li>
+        </ul>
+    </div>
+  </div>
+
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+        <span class="badge bg-primary me-1"> {{ pais.translations["spa"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["cym"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["deu"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["fra"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["ita"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["swe"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["zho"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["jpn"].common }} </span>
+        <span class="badge bg-primary me-1"> {{ pais.translations["ara"].common }} </span>
+    </div>
+  </div>
+
+  
+</ng-template>
